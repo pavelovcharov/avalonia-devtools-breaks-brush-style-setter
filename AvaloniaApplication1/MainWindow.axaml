@@ -5,5 +5,23 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="AvaloniaApplication1.MainWindow"
         Title="AvaloniaApplication1">
-    Welcome to Avalonia!
+    <Window.Styles>
+        <Style Selector="TabItem:pointerover">
+            <Setter Property="Background" Value="Red"></Setter>
+            <!-- <Setter Property="Tag" Value="test"></Setter> -->
+        </Style>
+    </Window.Styles>
+    
+    <TabControl>
+        <TabItem Header="Item1"></TabItem>
+        <TabItem Header="Item2">
+            <TabItem.Template>
+                <ControlTemplate>
+                    <Border Background="{TemplateBinding Background}">
+                        <ContentPresenter Content="{TemplateBinding Header}"></ContentPresenter>
+                    </Border>
+                </ControlTemplate>
+            </TabItem.Template>
+        </TabItem>
+    </TabControl>
 </Window>
